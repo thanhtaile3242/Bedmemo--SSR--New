@@ -60,17 +60,27 @@
                     </span>
                 </label>
             </div>
-            <!--  -->
-            <form method="POST" action="./updateQ_Submit" id="form-main">
-                <div class="left__btn">
-                    <button type="submit" id="SaveFolder">Save</button>
-                </div>
-                <!-- Get data -->
-                <input type="text" id="folderObject" name="folderObject" readonly required
-                    style="background-color: green;">
-                <input type="text" id="folderId" name="folderId" readonly required style="background-color: green;"
-                    value="<%= folderInfo._id%>">
-            </form>
+            <div style="position: relative;">
+                <!-- Update -->
+                <form method="POST" action="./updateQ_Submit" id="form-main">
+                    <div class="left__btn">
+                        <button type="submit" id="SaveFolder"
+                            style="position: absolute;right: 25%;min-width: 100px;">Save</button>
+                    </div>
+                    <!-- Get data -->
+                    <input type="text" id="folderObject" name="folderObject" readonly required hidden>
+                    <input type="text" id="folderId" name="folderId" readonly required hidden
+                        value="<%= folderInfo._id%>">
+                </form>
+                <!-- Delete -->
+                <form method="POST" action="./deleteQ_Submit" id="form-main2">
+                    <div class="left__btn">
+                        <button type="submit" name="folderId2"
+                            style="position: absolute;left: 25%; top: 0; min-width: 100px; background-color: #f7961b;">Delete</button>
+                    </div>
+                    <input type="text" id="" name="folderId" readonly required hidden value="<%= folderInfo._id%>">
+                </form>
+            </div>
         </div>
         <div class="main__right">
             <!-- Question and answers -->

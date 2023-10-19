@@ -3,7 +3,6 @@ module.exports = {
     getUpdatePage: async(req, res) => {
         let idFolder = req.query.id;
         let data = await Folder.findById(idFolder).populate('questionsArray');
-        console.log(data)
         res.render('update-Q.ejs', {folderInfo: data});
     },
     postUpdateQPage: async (req, res) => {
@@ -16,7 +15,6 @@ module.exports = {
         for (const itemOld of arrayOld) {
             let itemOldIdString = itemOld._id.toString();
             if (!arrayNew.some(item => item.id === itemOldIdString)) {
-                console.log(itemOldIdString);
                 // Step 1
                 await Folder.findByIdAndUpdate(
                     { _id: folderID },
@@ -49,9 +47,7 @@ module.exports = {
           if (Object.keys(updateFields).length > 0) {
             await Question.updateOne({ _id: item.id }, { $set: updateFields });
           }
-        } else {
-          console.log(`Document with _id ${item.id} does not exist in CollectionA.`);
-        }
+        } 
       } else {
         delete item.id;
         const newQuestion = new Question(item);
@@ -71,5 +67,16 @@ module.exports = {
         folderOld2.questionsArray = questionsArray2;
         await folderOld2.save();
         res.redirect('manage');
+  },
+    
+  getDeletePage: async (req, res) => {
+    const folderID = req.body.folderId;
+    const deletedFolder = await Folder.findOne({ _id: folderID });
+    const relatedIds = deletedFolder.questionsArray.map(id => id.toString());
+    await Question.deleteMany({ _id: { $in: relatedIds } });
+    await Folder.deleteOne({_id: folderID})
+    res.redirect('manage');
     }
+
+
 }
