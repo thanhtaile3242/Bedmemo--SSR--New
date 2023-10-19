@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-Q-Official</title>
+    <!-- Css -->
+    <link rel="stylesheet" href="./css/create-Q.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&display=swap" rel="stylesheet">
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/843994930b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Header (create-F and create_Q) -->
+    <header class="header">
+        <div class="header__logo">
+            <a href="../index.html">
+                <img src="./image/Logo/Bedmemo--blue.svg" alt="Bedmemo__logo">
+            </a>
+        </div>
+        <div class="header__icon">
+            <a href="./manage">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </a>
+        </div>
+    </header>
+    <!--  -->
+    <main class="main">
+        <div class="main__left">
+            <div class="left__image">
+                <img src="./image/create-F-Q/quizzes.jpg" alt="Quizzes-image">
+            </div>
+            <div class="left__info">
+                <label for="title-folder">
+                    <textarea type="text" name="" id="folderName" class="text-input" placeholder="Enter a title"
+                        autocomplete="off" rows="1"></textarea>
+                    <div class="cross-line"></div>
+                    <span class="text-name">
+                        Title
+                    </span>
+                </label>
+            </div>
+            <!--  -->
+            <div class="left__info">
+                <label for="title-folder">
+                    <textarea type="text" name="" id="folderBio" class="text-input" placeholder="Add a description"
+                        autocomplete="off" rows="1"></textarea>
+                    <div class="cross-line"></div>
+                    <span class="text-name">
+                        Description
+                    </span>
+                </label>
+            </div>
+            <!--  -->
+            <form method="POST" action="./createQ_Submit" id="form-main">
+                <div class="left__btn">
+                    <button type="submit" id="SaveFolder">Save</button>
+                </div>
+                <!-- Get data -->
+                <input type="text" id="folderObject" name="folderObject" readonly required hidden>
+            </form>
+        </div>
+        <div class="main__right">
+            <!-- Question and answers -->
+            <div id="rightSide__content">
+                <!-- The form default -->
+                <div class="form-Q" style="position: relative;">
+                    <div class="form-Q__number">
+                        <span class="countQ">1</span>
+                    </div>
+
+                    <div class="form-Q__question">
+                        <textarea class="question" name="q" cols="1" rows="2" placeholder="Start typing your question"
+                            maxlength="100"></textarea>
+                    </div>
+
+                    <div class="form-Q__answers">
+                        <div class="answers__item">
+                            <div class="item__choice choice--orange"><span>A</span></div>
+                            <div class="item__content">
+                                <textarea class="question" name="a" cols="1" rows="1" placeholder="Add answer"
+                                    maxlength="60"></textarea>
+                                <input type="radio" class="question" name="RA1" value="A">
+                            </div>
+                        </div>
+
+                        <div class="answers__item">
+                            <div class="item__choice choice--blue"><span>B</span></div>
+                            <div class="item__content">
+                                <textarea class="question" name="b" cols="1" rows="1" placeholder="Add answer"
+                                    maxlength="60"></textarea>
+                                <input type="radio" class="question" name="RA1" value="B">
+                            </div>
+                        </div>
+
+                        <div class="answers__item">
+                            <div class="item__choice choice--blue"><span>C</span></div>
+                            <div class="item__content">
+                                <textarea class="question" name="c" cols="1" rows="1" placeholder="Add answer"
+                                    maxlength="60"></textarea>
+                                <input type="radio" class="question" name="RA1" value="C">
+                            </div>
+                        </div>
+
+                        <div class="answers__item">
+                            <div class="item__choice choice--orange"><span>D</span></div>
+                            <div class="item__content">
+                                <textarea class="question" name="d" cols="1" rows="1" placeholder="Add answer"
+                                    maxlength="60"></textarea>
+                                <input type="radio" class="question" name="RA1" value="D">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <!-- Add button -->
+            <div class="right__btn">
+                <button type="button" id="addQuestion">+ ADD QUIZ</button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="./js/create-Q.js"></script>
+
+
+
+
+
+</body>
+
+</html>

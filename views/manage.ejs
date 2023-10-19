@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage-Official</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/manage.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&display=swap" rel="stylesheet">
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/843994930b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <a href="../index.html">
+                <img src="./image/Logo/Bedmemo--blue.svg" alt="">
+            </a>
+        </div>
+        <!--  -->
+        <div class="header__H-A">
+            <a href="../index.html">Home</a>
+        </div>
+        <!--  -->
+        <div class="header__H-A">
+            <a href="./about-us.html">About us</a>
+        </div>
+        <!--  -->
+        <div class="header__search">
+            <label for="search">
+                <i id="icon-glass" class="fa-solid fa-magnifying-glass"></i>
+                <input id="search" placeholder="Folders, questions, answers" type="text" maxlength="20" />
+            </label>
+        </div>
+        <!--  -->
+        <div class="header__create">
+            <label for="menu-create">
+                <i class="fa-solid fa-circle-plus i--orange"></i>
+                <input type="checkbox" id="menu-create">
+                <ul class="create__list">
+                    <li class="create__list__item">
+                        <a href="./createQ"><i class="
+                                fa-solid
+                                fa-file-circle-check list-content list-icon"></i>
+                            <span class="list-content">Quizzes</span></a>
+                    </li>
+                    <li class="create__list__item">
+                        <a href="./create-F">
+                            <i class="fa-solid fa-copy list-content list-icon"></i><span
+                                class="list-content">Flashcards</span></a>
+                    </li>
+                </ul>
+            </label>
+        </div>
+        <!--  -->
+        <div class="header__account">
+            <label for="account"><i class="fa-solid fa-circle-user i--blue"></i></label>
+            <input type="checkbox" name="" id="account">
+            <ul class="account__list">
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-book"></i>
+                        <span>My library</span></a>
+                </li>
+                <li>
+                    <a href=""><i class="fa-solid fa-gear"></i>
+                        <span>Setting</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../index.html">
+                        <i class="fa-solid fa-right-from-bracket"></i></i>
+                        <span>Log out</span></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!--  -->
+    <main class="main">
+        <section class="main__sub-menu">
+            <div class="sub-menu__text">
+                <button type="button">
+                    Quizzes
+                </button>
+                <div class="cross"></div>
+            </div>
+            <!--  -->
+            <div class="sub-menu__text">
+                <button type="button">
+                    Flashcards
+                </button>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="sub-menu__calendar">
+                <div class="calendar__logo">
+                    <button type="button">
+                        <span>9</span>
+                        <img src="../Images/manage/calendar.svg" alt="">
+                    </button>
+                </div>
+                <!--  -->
+                <div class="sub-menu__date">
+                    <div class="sub-menu__date--layout">
+                        <div class="date-text">
+                            <span>S</span>
+                        </div>
+                        <div class="date-text">
+                            <span>M</span>
+                        </div>
+                        <div class="date-text">
+                            <span>T</span>
+                        </div>
+                        <div class="date-text">
+                            <span>W</span>
+                        </div>
+                        <div class="date-text">
+                            <span>T</span>
+                        </div>
+                        <div class="date-text">
+                            <span>F</span>
+                        </div>
+                        <div class="date-text">
+                            <span>S</span>
+                        </div>
+                    </div>
+                    <div class="sub-menu__date--layout date-number--bg">
+                        <div class="date-number">
+                            <span>10</span>
+                            <img src="../Images/manage/flame.svg" alt="">
+                        </div>
+                        <div class="date-number">
+                            <span>11</span>
+                        </div>
+                        <div class="date-number">
+                            <span>12</span>
+                        </div>
+                        <div class="date-number">
+                            <span>13</span>
+                            <img src="../Images/manage/flame.svg" alt="">
+                        </div>
+                        <div class="date-number">
+                            <span>14</span>
+                        </div>
+                        <div class="date-number">
+                            <span>15</span>
+                            <img src="../Images/manage/flame.svg" alt="">
+                        </div>
+                        <div class="date-number">
+                            <span>16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -->
+        <section class="main__folders">
+            <!--  -->
+            <% listFolders.forEach(function(folder) { %>
+                <div class="folder__item">
+                    <div class="folder__info">
+                        <h2 class="info__title">
+                            <%= folder.folderInfo %>
+                        </h2>
+                        <label for="<%= folder._id %>" class="info__edit">
+                            <i class="fa-solid fa-ellipsis-vertical three-dots"></i>
+                            <input type="checkbox" class="show-hide-UR" id="<%= folder._id %>">
+                            <ul class="edit__list">
+                                <li>
+                                    <a href="/update?id=<%= folder._id %>">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <span>Edit</span>
+                                    </a>
+                                </li>
+                                <!--  -->
+                                <li>
+                                    <a href="/delete/<%= folder._id %>">
+                                        <i class="fa-solid fa-trash"></i>
+                                        <span>Remove</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </label>
+                    </div>
+                    <div class="folder__detail">
+                        <span>
+                            <%= folder.questionsArray.length %> Questions
+                        </span>
+                        <a href="">Start</a>
+                    </div>
+                </div>
+                <% }); %>
+                    <!--  -->
+        </section>
+    </main>
+
+    <!-- <footer class="footer">
+        <div class="footer__logo">
+            <img src="../Images/logo/Bedmemo--blue.svg" alt="">
+            <div class="footer__icons">
+                <a href="">
+                    <img src="../Images/icon/facebook.svg" alt=""></a>
+                
+                <a href=""><img src="../Images/icon/telegram.svg" alt=""></a>
+        
+                <a href=""><img src="../Images/icon/linkedin.svg" alt=""></a>
+            </div>
+        </div>
+
+        <div class="footer__content">
+            <h2 class="footer__title">About us</h2>
+            <ul class="footer__list">
+                <li><a href="">About Bedmemo</a></li>
+                <li><a href="">How Bedmemo works</a></li>
+                <li><a href="">FQAs</a></li>
+            </ul>
+        </div>
+     
+        <div class="footer__content">
+            <h2 class="footer__title">Terms and conditions</h2>
+            <ul class="footer__list">
+                <li><a href="">Privacy policy</a></li>
+                <li><a href="">Terms of services</a></li>
+                <li><a href="">Student conditions</a></li>
+            </ul>
+        </div>
+    </footer> -->
+</body>
+
+</html>

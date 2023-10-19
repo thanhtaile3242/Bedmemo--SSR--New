@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-Q-Official</title>
+    <!-- Css -->
+    <link rel="stylesheet" type="text/css" href="/css/create-Q.css">
+
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&display=swap" rel="stylesheet">
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/843994930b.js" crossorigin="anonymous"></script>
+    <base href="/">
+</head>
+
+<body>
+    <!-- Header (create-F and create_Q) -->
+    <header class="header">
+        <div class="header__logo">
+            <a href="../index.html">
+                <img src="./image/Logo/Bedmemo--blue.svg" alt="Bedmemo__logo">
+            </a>
+        </div>
+        <div class="header__icon">
+            <a href="./manage">
+                <i class="fa-solid fa-right-to-bracket"></i>
+            </a>
+        </div>
+    </header>
+    <!--  -->
+    <main class="main">
+        <div class="main__left">
+            <div class="left__image">
+                <img src="./image/create-F-Q/quizzes.jpg" alt="Quizzes-image">
+            </div>
+
+            <div class="left__info">
+                <label for="title-folder">
+                    <textarea type="text" name="" id="folderName" class="text-input" placeholder="Enter a title"
+                        autocomplete="off" rows="1"><%= folderInfo.folderInfo%></textarea>
+                    <div class="cross-line"></div>
+                    <span class="text-name">
+                        Title
+                    </span>
+                </label>
+            </div>
+            <!--  -->
+            <div class="left__info">
+                <label for="title-folder">
+                    <textarea type="text" name="" id="folderBio" class="text-input" placeholder="Add a description"
+                        autocomplete="off" rows="1"><%= folderInfo.folderBio%></textarea>
+                    <div class="cross-line"></div>
+                    <span class="text-name">
+                        Description
+                    </span>
+                </label>
+            </div>
+            <!--  -->
+            <form method="POST" action="./updateQ_Submit" id="form-main">
+                <div class="left__btn">
+                    <button type="submit" id="SaveFolder">Save</button>
+                </div>
+                <!-- Get data -->
+                <input type="text" id="folderObject" name="folderObject" readonly required
+                    style="background-color: green;">
+                <input type="text" id="folderId" name="folderId" readonly required style="background-color: green;"
+                    value="<%= folderInfo._id%>">
+            </form>
+        </div>
+        <div class="main__right">
+            <!-- Question and answers -->
+            <div id="rightSide__content">
+                <!-- The form default -->
+                <% folderInfo.questionsArray.forEach(function(question,index) { %>
+                    <div class="form-Q" style="position: relative;">
+                        <div class="form-Q__number">
+                            <span class="countQ">
+                                <%= index + 1 %>
+                            </span>
+                            <input type="text" style="width: 50%;" class="id_question" id=""
+                                value="<%= question._id %>">
+                        </div>
+
+                        <div class="form-Q__question">
+                            <textarea class="question q<%= index + 1 %>" name="q" cols="1" rows="2"
+                                maxlength="100"><%= question.question %></textarea>
+                        </div>
+
+                        <div class="form-Q__answers">
+                            <div class="answers__item">
+                                <div class="item__choice choice--orange"><span>A</span></div>
+                                <div class="item__content">
+                                    <textarea class="question q<%= index + 1 %>" name="a" cols="1" rows="1"
+                                        maxlength="60"><%= question.answerA %></textarea>
+                                    <input type="radio" class="question" name="RA<%= index + 1 %>" value="A"
+                                        <%=question.rightAnswer==="A" ? 'checked' : '' %> >
+                                </div>
+                            </div>
+
+                            <div class="answers__item">
+                                <div class="item__choice choice--blue"><span>B</span></div>
+                                <div class="item__content">
+                                    <textarea class="question q<%= index + 1 %>" name="b" cols="1" rows="1"
+                                        maxlength="60"><%= question.answerB %></textarea>
+                                    <input type="radio" class="question" name="RA<%= index + 1 %>" value="B"
+                                        <%=question.rightAnswer==="B" ? 'checked' : '' %>>
+                                </div>
+                            </div>
+
+                            <div class="answers__item">
+                                <div class="item__choice choice--blue"><span>C</span></div>
+                                <div class="item__content">
+                                    <textarea class="question q<%= index + 1 %>" name="c" cols="1" rows="1"
+                                        maxlength="60"><%= question.answerC %></textarea>
+                                    <input type="radio" class="question" name="RA<%= index + 1 %>" value="C"
+                                        <%=question.rightAnswer==="C" ? 'checked' : '' %>>
+                                </div>
+                            </div>
+
+                            <div class="answers__item">
+                                <div class="item__choice choice--orange"><span>D</span></div>
+                                <div class="item__content">
+                                    <textarea class="question q<%= index + 1 %>" name="d" cols="1" rows="1"
+                                        maxlength="60"><%= question.answerD %></textarea>
+                                    <input type="radio" class="question" name="RA<%= index + 1 %>" value="D"
+                                        <%=question.rightAnswer==="D" ? 'checked' : '' %>>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                        <!--  -->
+            </div>
+            <!-- Add button -->
+            <div class="right__btn">
+                <button type="button" id="addQuestion">+ ADD QUIZ</button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="./js/update-Q.js"></script>
+
+</body>
+
+</html>

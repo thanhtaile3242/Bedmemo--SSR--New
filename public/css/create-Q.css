@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: 2.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+button,
+input {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: inherit;
+  letter-spacing: 1px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+:root {
+  --main-orange: #f7961b;
+  --main-blue: #2a388f;
+  --main-gray: #f7f7f9;
+  --light-gray: #e7e7ec;
+  --rich-gray: #888888;
+  --white: white;
+  --black: black;
+}
+
+.header {
+  padding: 15px 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 9px 0px;
+}
+.header__icon i {
+  color: var(--main-blue);
+  font-size: 30px;
+}
+
+
+.main {
+  padding: 35px 4%;
+  background-color: var(--main-gray);
+  display: grid;
+  grid-template-columns: 30% 68%;
+  gap: 2%;
+  min-height: 100vh;
+}
+.main__left {
+  padding: 70px 0 0 20px;
+}
+.main__left .left__info {
+  margin-bottom: 30px;
+}
+.main__left .left__info .text-input {
+  border: 0;
+  font-size: 25px;
+  background-color: var(--main-gray);
+  width: 100%;
+  border-bottom: 2px solid black;
+  letter-spacing: 1px;
+}
+.main__left .left__info ::placeholder {
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+.main__left .left__info .text-name {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.main__left .left__btn {
+  text-align: center;
+}
+.main__left .left__btn button {
+  display: inline-block;
+  background-color: #2a388f;
+  color: white;
+  padding: 5px 10px;
+  font-size: 25px;
+  border-radius: 10px;
+}
+/* .main__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+.main__right .form-Q {
+  margin-bottom: 35px;
+}
+.main__right .form-Q__number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 3px;
+}
+.main__right .form-Q__number span {
+  font-size: 30px;
+  font-weight: 700;
+}
+.main__right .form-Q__number i {
+  color: black;
+}
+.main__right .form-Q__question {
+  margin-bottom: 20px;
+}
+.main__right .form-Q__question textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  padding: 35px;
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.main__right .form-Q__answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
+}
+.main__right .form-Q__answers .answers__item {
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+}
+.main__right .form-Q__answers .answers__item .choice--blue {
+  background-color: #2a388f;
+}
+.main__right .form-Q__answers .answers__item .choice--orange {
+  background-color: #f7961b;
+}
+.main__right .form-Q__answers .answers__item .item__choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 50px;
+}
+.main__right .form-Q__answers .answers__item .item__choice span {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+}
+.main__right .form-Q__answers .answers__item .item__content {
+  width: 100%;
+  position: relative;
+}
+.main__right .form-Q__answers .answers__item .item__content textarea {
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+  font-size: 16px;
+  padding: 5px 5px 5px 25px;
+}
+.main__right .form-Q__answers .answers__item .item__content ::placeholder {
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+.main__right .form-Q__answers .answers__item .item__content input[type=radio] {
+  position: absolute;
+  right: 1%;
+  transform: scale(2);
+  accent-color: green;
+}
+.main__right .right__btn {
+  /* margin-top: 100px; */
+  text-align: center;
+}
+.main__right .right__btn button {
+  display: inline-block;
+  letter-spacing: 1px;
+  color: black;
+  border-bottom: 5px solid #f7961b;
+}
+
+/*# sourceMappingURL=create-Q.css.map */
